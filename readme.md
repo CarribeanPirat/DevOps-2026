@@ -1,6 +1,6 @@
 # Partie 1 — Les bases 🟢
 
-## Travail à faire :
+## Exercice 1 — Premier contact avec Docker 
 
 ### 1.1 __Téléchargez l'image nginx:alpine depuis Docker Hub sans lancer de conteneur.__
 
@@ -58,4 +58,11 @@ La commande `docker rm mon-nginx` permet de supprimer le container. On vérifie 
 ![alt text](image-9.png)
 
 ---
+
+### 1.8 __Quelle commande aurait permis de lancer le conteneur de façon à ce qu'il soit automatiquement supprimé à l'arrêt ?__
+
+La commande qui permet de lancer un container puis qu'il se supprime automatiquement une fois stoppé est : `docker run --rm <image>`
+
+## Exercice 2 — Construire sa première image avec un Dockerfile 
+
 
