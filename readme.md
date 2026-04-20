@@ -119,6 +119,23 @@ On peut voir que __2 layers__ on été ajoutés par rapport à l'image de base. 
 
 ---
 
-### 2.7 __Modifiez index.html (changez le `<h1>` ) Reconstruisez l'image avec le tag mon-site:v2 . Quelle étape a été rechargée depuis le cache ? Quelle étape a été réexécutée ?__
+### 2.7 __Modifiez `index.html` (changez le `<h1>` ) Reconstruisez l'image avec le tag `mon-site:v2`. Quelle étape a été rechargée depuis le cache ? Quelle étape a été réexécutée ?__
+
+Après avoir modifié le `H1` du fichier `index.html` on reconstruit l'image en tapant la même commande que précédement mais en remplaçant le nom : `docker build -t mon-site:v2`
+
+![alt text](image-21.png)
+![alt text](image-20.png)
+
+L'image de base nginx:alpine n'a pas changé. Docker réutilise le cache. 
+
+Le fichier index.html a été modifié et Docker a réexécuté le COPY.
+
+![alt text](image-22.png)
+
+---
+
+### 2.8 __Supprimez l'image mon-site:v1 (sans supprimer v2 ).__
+
+Pour supprimer l'image `mon-site:v1` nous faisons `docker rmi mon-site:v1` 
 
 
