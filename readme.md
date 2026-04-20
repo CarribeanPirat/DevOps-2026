@@ -78,5 +78,30 @@ A des fins de praticité, dans VSCode il suffira de taper `!` afin qu'il nous aj
 - __Copie index.html dans /usr/share/nginx/html/index.html__
 - __Expose le port 80__
 
+![alt text](image-13.png)
+
+---
+
+### 2.3 __Construisez l'image avec le tag mon-site:v1.__
+
+On rentre la commande `docker build -t <tag> .` dans le terminal.
+
+![alt text](image-14.png)
+
+--- 
+
+### 2.4 __Lancez un conteneur basé sur cette image, en exposant le port 9090 → 80 , avec --rm . Vérifiez dans le navigateur.__
+
+Pour ce faire, nous utilisons la commande suivante : `docker run --rm -d -p 9090:80 --name mon-site mon-site:v1`
+
+![alt text](image-15.png)
+
+Après vérification dans le navigateur, nous pouvons voir que le `H1` de notre fichier `HTML` s'exécute correctement.
+
+![alt text](image-16.png)
+
+---
+
+
 
 
