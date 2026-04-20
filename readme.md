@@ -66,3 +66,5 @@ La commande qui permet de lancer un container puis qu'il se supprime automatique
 ## Exercice 2 — Construire sa première image avec un Dockerfile 
 
 
+
+
