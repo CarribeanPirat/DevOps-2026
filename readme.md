@@ -102,6 +102,23 @@ Après vérification dans le navigateur, nous pouvons voir que le `H1` de notre 
 
 ---
 
+### 2.5 __Listez les images locales. Quelle est la taille de mon-site:v1 ? Comparez avec nginx:alpine.__
 
+On peut lister les images avec `docker images`. Avec cette commande, nous avons accès à plusieurs informations dont la taille. `mon-site:nginx` est plus légère que `nginx:alpine` de plusieurs dizaine de MB ce qui est plutôt significatif.
+
+![alt text](image-17.png)
+
+---
+
+### 2.6 __Inspectez les layers de l'image avec `docker history mon-site:v1`. Combien de layers ont été ajoutés par rapport à l'image de base ?__
+
+On peut voir que __2 layers__ on été ajoutés par rapport à l'image de base. `EXPOSE` et `COPY`.
+
+![alt text](image-18.png)
+![alt text](image-19.png)
+
+---
+
+### 2.7 __Modifiez index.html (changez le `<h1>` ) Reconstruisez l'image avec le tag mon-site:v2 . Quelle étape a été rechargée depuis le cache ? Quelle étape a été réexécutée ?__
 
 
