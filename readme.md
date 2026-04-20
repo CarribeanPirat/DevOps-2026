@@ -65,6 +65,18 @@ La commande qui permet de lancer un container puis qu'il se supprime automatique
 
 ## Exercice 2 — Construire sa première image avec un Dockerfile 
 
+### 2.1 __Écrivez index.html avec le contenu HTML minimal suivant (titre : "Ma première image Docker" , un `h1` avec votre prénom).__
+
+A des fins de praticité, dans VSCode il suffira de taper `!` afin qu'il nous ajoute automatiquement un squelette de base avec toutes les balises minimales `HTML`. Nous n'avons plus qu'à remplir le `title` et créer le `H1` dans le `body`.
+
+![alt text](image-12.png)
+
+---
+
+### __2.2 Écrivez un Dockerfile qui :__
+- __Part de l'image nginx:alpine__
+- __Copie index.html dans /usr/share/nginx/html/index.html__
+- __Expose le port 80__
 
 
 
