@@ -177,10 +177,46 @@ Suite à la modification du code `HTML`, après avoir rafraîchi le navigateur, 
 
 ![alt text](image-29.png)
 
+---
+
 ### 3.3 __— Volume nommé : Créez un volume Docker nommé mes-donnees.__
 
 Nous créons le volume avec la commande suivante :
 
 ![alt text](image-31.png)
 
+---
+
 ### 3.4 __Lancez un conteneur alpine avec --rm en montant mes-donnees sur /data . Dans le conteneur, créez /data/persistant.txt avec le contenu "je survis". Quittez.__
+
+Nous utilisons la commande suivante pour ce faire : 
+
+![alt text](image-32.png)
+
+---
+
+### 3.5 __Lancez un nouveau conteneur alpine (différent du précédent) avec le même volume monté. Le fichier /data/persistant.txt existe-t-il ? Qu'est-ce que cela démontre ?__
+
+Après avoir relancé un nouveau container avec le même volume monté, nous pouvons voir que le fichier `persistant.txt` existe toujours. Cela démontre que contrairement aux bind mounts, le volume nommé persiste indépendamment des conteneurs. Même après la suppression du conteneur (`--rm`), les données survivent car elles sont stockées par Docker, pas dans le conteneur.<br>
+
+_PS: merci d'omettre la faute de frappe_ 😁
+
+![alt text](image-33.png)
+
+---
+
+### 3.6 __Listez les volumes Docker existants. Où Docker stocke-t-il physiquement ce volume sur votre machine ?__
+
+Pour lister les volumes Docker existant, il suffit de taper la commande `docker volume ls`. Nous pouvons voir que le volume précédemment créé et disponible. Une fois ceci fait, pour vérifier l'emplacement du volume nous faisons : `docker volume inspect mes-donnees`. Nous recevons un tableau d'objet en `JSON` avec l'information du `MountPoint`.
+
+![alt text](image-34.png)
+
+---
+
+### 3.7 __Supprimez le volume mes-donnees . Quelle précaution faut-il prendre avant de le supprimer ?__
+
+Pour supprimer un volume Docker, la commande est : `docker volume rm mes-donnes`. Dans l'idéal, il faut s'assurer qu'aucun conteneur n'utilise le volume avant de le supprimer, sinon Docker refusera. ⚠️ Et surtout, la suppression est irréversible. Toutes les données dedans sont perdues définitivement.⚠️
+
+_PS: merci d'omettre l'oublie de `ls`'_ 😁
+
+![alt text](image-35.png)
