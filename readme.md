@@ -136,6 +136,9 @@ Le fichier index.html a été modifié et Docker a réexécuté le COPY.
 
 ### 2.8 __Supprimez l'image mon-site:v1 (sans supprimer v2 ).__
 
-Pour supprimer l'image `mon-site:v1` nous faisons `docker rmi mon-site:v1` 
+Pour supprimer l'image `mon-site:v1` nous faisons `docker rmi mon-site:v1`.
+
+![alt text](image-24.png)
+
 
 
