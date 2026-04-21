@@ -259,7 +259,37 @@ On lance le container avec la commande : `docker run -it --rm --name client --ne
 
 ---
 
-### 4.5 __Quittez client. Lancez un nouveau conteneur alpine nommé client-externe sans le connecter à mon-reseau (réseau par défaut). Essayez de joindre serveur-webpar son nom. Que se passe-t-il ? Pourquoi ?__
+### 4.5 __Quittez client. Lancez un nouveau conteneur alpine nommé client-externe sans le connecter à mon-reseau (réseau par défaut). Essayez de joindre serveur-web par son nom. Que se passe-t-il ? Pourquoi ?__
 
+Pour lancer le nouveau container : `docker run -it --rm --name client-externe alpine`. Lorsqu'on essaye de joindre le serveur `serveur-web` nous obtenons une erreur. En effet, le réseau de `client-externe` est en mode `bridge` et est donc isolé de `mon-reseau`.
 
+![alt text](image-41.png)
+
+---
+
+### 4.6 __Quelle commande permet de connecter client-externe à mon-reseau après son démarrage ?__
+
+Voici la commande : `docker network connect mon-reseau client-externe`
+
+---
+
+### 4.7 __Nettoyez : arrêtez et supprimez tous les conteneurs créés dans cet exercice, puis supprimez mon-reseau.__
+
+Voici les commandes pour arrêter, supprimer les containers ainsi que `mon-reseau` : 
+
+`docker stop serveur-web client-externe`
+
+`docker rm serveur-web client-externe`
+
+`docker network rm mon-reseau`
+
+On vérifie que tout est bien supprimé avec `docker ps` et `docker network ls` : 
+
+![alt text](image-42.png)
+
+---
+
+## Exercice 5 — Containeriser un serveur Flask
+
+### 5.1 __Créez `app.py` :__
 
