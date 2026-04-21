@@ -39,6 +39,7 @@ Nous pouvons voir une page Nginx prouvant que le conteneur Docker est bien lanc�
 Les logs sont accessibles en cliquant directement sur le nom du container. 
 
 ![alt text](image-5.png)
+
 ![alt text](image-6.png)
 
 ---
@@ -115,6 +116,7 @@ On peut lister les images avec `docker images`. Avec cette commande, nous avons 
 On peut voir que __2 layers__ on été ajoutés par rapport à l'image de base. `EXPOSE` et `COPY`.
 
 ![alt text](image-18.png)
+
 ![alt text](image-19.png)
 
 ---
@@ -124,6 +126,7 @@ On peut voir que __2 layers__ on été ajoutés par rapport à l'image de base. 
 Après avoir modifié le `H1` du fichier `index.html` on reconstruit l'image en tapant la même commande que précédement mais en remplaçant le nom : `docker build -t mon-site:v2`
 
 ![alt text](image-21.png)
+
 ![alt text](image-20.png)
 
 L'image de base nginx:alpine n'a pas changé. Docker réutilise le cache. 
@@ -156,4 +159,28 @@ Comme nous pouvons le constater, après avoir quitté le container et relancé c
 
 ---
 
+### 3.2 __— Bind mount : Créez un dossier exercice-3/html/ sur votre machine. Placez-y un fichier index.html . Lancez un conteneur nginx:alpine en montant ce dossier dans / usr/share/nginx/html avec -v . Modifiez index.html sur votre machine (sans redémarrer le conteneur) et rafraîchissez le navigateur. Que constatez-vous ?__
 
+On tape la commande correspondante pour lancer le fichier que l'on vient de créer.
+
+![alt text](image-27.png)
+
+On peut voir que cela fonctionne bien et que notre `HTML` s'affiche bien.
+
+![alt text](<Capture d'écran 2026-04-21 094843.png>)
+
+![alt text](image-28.png)
+
+Suite à la modification du code `HTML`, après avoir rafraîchi le navigateur, nous pouvons constater que la modification est effective et immédiate.
+
+![alt text](image-30.png)
+
+![alt text](image-29.png)
+
+### 3.3 __— Volume nommé : Créez un volume Docker nommé mes-donnees.__
+
+Nous créons le volume avec la commande suivante :
+
+![alt text](image-31.png)
+
+### 3.4 __Lancez un conteneur alpine avec --rm en montant mes-donnees sur /data . Dans le conteneur, créez /data/persistant.txt avec le contenu "je survis". Quittez.__
