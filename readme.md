@@ -140,5 +140,20 @@ Pour supprimer l'image `mon-site:v1` nous faisons `docker rmi mon-site:v1`.
 
 ![alt text](image-24.png)
 
+---
+
+## Exercice 3 — Volumes et persistance des données
+
+### 3.1 __Lancez un conteneur alpine en mode interactif ( -it ) avec --rm . À l'intérieur, créez le fichier /data/test.txt avec le contenu "bonjour" . Quittez ( exit ). Relancez un nouveau conteneur alpine . Le fichier existe-t-il ? Expliquez pourquoi.__
+
+On lance le container avec la commande `docker run -it --rm alpine`. Docker va télécharger automatiquement l'image depuis la librairie. Une fois terminé, nous accédons au shell dans lequel nos pouvons entrer les commandes et créer notre fichier `test.txt`.
+
+![alt text](image-25.png)
+
+Comme nous pouvons le constater, après avoir quitté le container et relancé ce dernier, le dossier `data` n'existe plus car Docker, de base, repart sur une image vierge si on ne lui précise pas que l'on peut faire persister les données.
+
+![alt text](image-26.png)
+
+---
 
 
