@@ -293,3 +293,19 @@ On vérifie que tout est bien supprimé avec `docker ps` et `docker network ls` 
 
 ### 5.1 __Créez `app.py` :__
 
+Dans VS Code, on crée le fichier `app.py` puis on colle le code fourni.
+
+![alt text](image-43.png)
+
+---
+
+### 5.2 __Créez requirements.txt avec Flask 3.0.3 comme unique dépendance__
+
+![alt text](image-44.png)
+
+### 5.3 __Écrivez un Dockerfile qui :__
+- __Part de python:3.12-slim__
+- __Définit /app comme répertoire de travail__
+- __Copie d'abord requirements.txt seul, installe les dépendances (sans cache pip), puis copie le reste des sources. Pourquoi cet ordre est-il important pour le cache Docker ?__
+- __Expose le port 5000__
+- __Définit la commande de démarrage avec flask run --host=0.0.0.0__
