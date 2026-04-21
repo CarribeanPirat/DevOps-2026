@@ -220,3 +220,46 @@ Pour supprimer un volume Docker, la commande est : `docker volume rm mes-donnes`
 _PS: merci d'omettre l'oublie de `ls`'_ 😁
 
 ![alt text](image-35.png)
+
+---
+
+## Exercice 4 — Réseaux Docker
+
+### 4.1 __Listez les réseaux Docker existants sur votre machine. Quels sont les trois réseaux créés par défaut ?__
+
+Pour lister les réseaux créés par défaut, il faut taper la commande : `docker network ls`
+
+![alt text](image-36.png)
+
+---
+
+### 4.2 __Créez un réseau bridge personnalisé nommé mon-reseau.__
+
+Voici la commande : `docker network create mon-reseau`
+
+![alt text](image-37.png)
+
+---
+
+### 4.3 __Lancez un conteneur `nginx:alpine` nommé `serveur-web` connecté à `mon-reseau`, en arrière-plan.__
+
+Voici la commande : `docker run -d --name serveur-web --network mon-reseau nginx:alpine`
+
+![alt text](image-38.png)
+
+---
+
+### 4.4 __Lancez un conteneur alpine nommé client connecté à `mon-reseau` en mode interactif. Depuis client , effectuez un `wget -qO- http://serveur-web`. Que récupérez-vous ? Pourquoi peut-on utiliser le nom serveur-web plutôt qu'une adresse IP ?__
+
+On lance le container avec la commande : `docker run -it --rm --name client --network mon-reseau alpine`. On peut utiliser le nom `serveur-web` car Docker intègre un DNS automatique dans les réseaux personnalisés. Il résout automatiquement le nom du conteneur en son adresse IP.
+
+![alt text](image-39.png)
+
+![alt text](image-40.png)
+
+---
+
+### 4.5 __Quittez client. Lancez un nouveau conteneur alpine nommé client-externe sans le connecter à mon-reseau (réseau par défaut). Essayez de joindre serveur-webpar son nom. Que se passe-t-il ? Pourquoi ?__
+
+
+
