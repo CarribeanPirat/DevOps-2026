@@ -303,9 +303,19 @@ Dans VS Code, on crée le fichier `app.py` puis on colle le code fourni.
 
 ![alt text](image-44.png)
 
+---
+
 ### 5.3 __Écrivez un Dockerfile qui :__
 - __Part de python:3.12-slim__
 - __Définit /app comme répertoire de travail__
 - __Copie d'abord requirements.txt seul, installe les dépendances (sans cache pip), puis copie le reste des sources. Pourquoi cet ordre est-il important pour le cache Docker ?__
 - __Expose le port 5000__
 - __Définit la commande de démarrage avec flask run --host=0.0.0.0__
+
+On écrit le `Dockerfile`. L'ordre est important car Docker construit les images couche par couche. Ainsi, l'ordre est primordial afin de ne pas devoir tout rebuild si un changement a lieu.
+
+![alt text](image-45.png)
+
+---
+
+### 5.4 __Construisez l'image flask-app:v1.__
