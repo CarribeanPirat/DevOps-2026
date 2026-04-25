@@ -363,3 +363,29 @@ On peut voir que le code fourni dans `app.py` est bien fonctionnel. Le valeur pa
 Pour vérifier la taille de l'image, nous faisons la commande : `docker images` et pouvons voir que le `DISK USAGE` est de `197MB`.
 
 ![alt text](image-53.png)
+
+Première option : On change l'image `python:3.12-slim` par `python:3.12-alpine` qui est plus légère. _{Pour le rebuild, j'ai appellé la nouvelle version `v2` afin d'avoir un visuel de comparatif.}_
+
+![alt text](image-54.png)
+
+Une fois le rebuild fait, on tape la commande : `docker build -t flask-app:v2`.
+
+![alt text](image-55.png)
+
+Maintenant, comparons les deux images avec la commande : `docker images flask-app`
+
+![alt text](image-56.png)
+
+Déjà, nous pouvons voir une baisse significative de la taille de l'image. Elle est passée de `197MB` à `94.4MB`. Maintenant, essayons de rajouter le fichier `.dockerignore` qui sert à ignorer certains fichiers non essentiels lors du build.
+
+![alt text](image-57.png)
+
+Maintenant recompilons le tout et voyons la différence entre les trois versions.
+
+![alt text](image-58.png)
+
+Voyons le résultat : 
+
+
+
+
