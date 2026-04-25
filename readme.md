@@ -386,6 +386,9 @@ Maintenant recompilons le tout et voyons la différence entre les trois versions
 
 Voyons le résultat : 
 
+![alt text](image-59.png)
+
+Malheuresement, dans ce projet, l’effet est négligeable car peu de données sont présentent, mais sur des projets volumineux, `.dockerignore` peut réduire significativement la taille de l’image et accélérer le build.
 
 
 
