@@ -319,3 +319,47 @@ On écrit le `Dockerfile`. L'ordre est important car Docker construit les images
 ---
 
 ### 5.4 __Construisez l'image flask-app:v1.__
+
+On utilise la commande `docker build -t flask-app:v1`
+
+![alt text](image-46.png)
+
+---
+
+### 5.5 __Lancez un conteneur en passant la variable d'environnement APP_ENV=production et en exposant le port 5000 . Vérifiez / et /health dans le navigateur ou avec curl.__
+
+Voici la commande de lancement du contenair : `docker run -d --name mon-app -e APP_ENV=production -p 5000:5000 flask-app:v1`
+
+![alt text](image-47.png)
+
+Une fois le container lancé, nous ouvrons `http://localhost:5000` et pouvons voir que le fichier `app.py` est bien fonctionnel et nous affiche `production`.
+
+![alt text](image-48.png)
+
+Nous allons maintenant sur la route `/health` et obtenons bien le statut `ok` qui nous confirme que tout fonctionne. 
+
+![alt text](image-49.png)
+
+---
+
+### 5.6 __Relancez le conteneur sans passer APP_ENV . Quelle valeur s'affiche ? D'où vient-elle ?__
+
+Avant de relancer le container, on le stop et le supprime avec la commande : `docker stop mon-app && docker rm mon-app`. 
+
+![alt text](image-51.png)
+
+Une fois que cela est fait, on le relance sans lui passer la variable d'environnement `APP_ENV`. 
+
+![alt text](image-50.png)
+
+![alt text](image-52.png)
+
+On peut voir que le code fourni dans `app.py` est bien fonctionnel. Le valeur par défaut de la variable d'environnement est affichée. 
+
+---
+
+### 5.7 __Quelle est la taille de l'image flask-app:v1 ? Que pourrait-on faire pour la réduire davantage (donnez deux pistes) ?__
+
+Pour vérifier la taille de l'image, nous faisons la commande : `docker images` et pouvons voir que le `DISK USAGE` est de `197MB`.
+
+![alt text](image-53.png)
