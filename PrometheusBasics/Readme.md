@@ -75,7 +75,31 @@ Pour vérifier, on tape `docker ps` et on voit que le container a bien été cr�
 
 ---
 
+### 2.4 Modifier le fichier puis déclencher un rechargement : curl -X POST http://localhost:9090/-/reload
 
+J'ai modifié le fichier en changeant le paramètre `scrape_interval` pour le passer de 10s à 15s :
+
+![alt text](image-11.png)
+
+Puis, j'ai reload le fichier de config avec la commande donnée : 
+
+![alt text](image-12.png)
+
+---
+
+### 2.5 Confirmer la modification dans Status > Configuration
+
+On peut voir que la modification a bien été prise en compte :
+
+![alt text](image-13.png)
+
+---
+
+## Exercice 3 : Ajouter node_exporter et scraper les métriques système
+
+> *Lancer node_exporter et configurer Prometheus pour le scraper. Vérifier que la métrique node_cpu_seconds_total apparaît dans l'expression browser.*
+
+### 3.1 Lancer node_exporter : docker run -d --name node-exporter -p 9100:9100 prom/node-exporter:latest
 
 
 
