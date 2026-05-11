@@ -55,7 +55,27 @@ Pur vérifier la bonne suppression, nous tapons `docker ps` et pouvons voir que 
 
 ---
 
-### 2.2 
+### 2.2 Créer un fichier prometheus.yml sur l'hôte avec les paramètres demandés
+
+On crée le fichier :
+
+![alt text](image-7.png)
+
+---
+
+### 2.3 Lancer un nouveau conteneur avec --web.enable-lifecycle et le fichier monté sur /etc/prometheus/prometheus.yml
+
+On utilise la commande suivante : `docker run -d --name prometheus -p 9090:9090 -v <PATH_OF_FILE>:/etc/prometheus/prometheus.yml prom/prometheus:latest --config.file=/etc/prometheus/prometheus.yml --web.enable-lifecycle` 
+
+![alt text](image-9.png)
+
+Pour vérifier, on tape `docker ps` et on voit que le container a bien été crée et est bien en mode runing.
+
+![alt text](image-10.png)
+
+---
+
+
 
 
 
